@@ -16,10 +16,10 @@ function CreateBook() {
     return (
         <div className='create-book'>
         <form className='form' onSubmit={submitBook}>
-            <input type='text' placeholder='Book Author' />
-            <input type='text' placeholder='Year of Publication' />
-            <input type='text' placeholder='Number of Pages' />
-            <button type='submit' onClick={() => console.log("clicked")}>Create a Book</button>
+            <input type='text' name='author' placeholder='Book Author' />
+            <input type='text' name="year" placeholder='Year of Publication' />
+            <input type='text' name='pages' placeholder='Number of Pages' />
+            <button type='submit'>Create a Book</button>
         </form>
         <style jsx>{`
             .create-book {
