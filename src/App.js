@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [books, setBooks] = useState([]);
 
-  
+
   useEffect(() => {
     getBooks().then((res) => {
       setBooks(res.data);
@@ -29,7 +29,6 @@ function App() {
        }
         <Book />
         <Book />
-       
       </div>
       <style jsx>{`
         .books {

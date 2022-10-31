@@ -1,12 +1,12 @@
 import React from 'react'
 
-function Book() {
+function Book({author, year, pages}) {
     return (
         <div className='book'>
-            <h1>Book Author</h1>
+            <h1>{author}</h1>
             <span>
-                <p>Year of publication</p>
-                <p># of pages</p>
+                <p>{year}</p>
+                <p>{pages } pages</p>
             </span>
             <style jsx>{`
             .book {
