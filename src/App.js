@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Book from "./components/Book";
+import CreateBook from "./components/createBook";
+import { getBooks } from "./utils/book";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [books, setBooks] = useState([]);
+
+  
+  useEffect(() => {
+    getBooks().then((res) => {
+      setBooks(res.data);
+    });
+  }, [books]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <span>
+        <h1>Hello Seamfix</h1>
+        <CreateBook />
+      </span>
+
+      <div className="books">
+       {
+          books.map((book) => {
+            return <Book key={book._id} {...book} />
+          })
+       }
+        <Book />
+        <Book />
+       
+      </div>
+      <style jsx>{`
+        .books {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      `}</style>
     </div>
   );
 }
